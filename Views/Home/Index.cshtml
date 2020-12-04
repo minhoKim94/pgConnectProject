@@ -1,0 +1,171 @@
+﻿@model PGproject.ViewModels.POQResp
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- 모달을 열기 위한 버튼 -->
+<div class="row text-center">
+    <div class="col-md-4 panel-primary">
+        <div class="panel-heading panel-primary">
+            <span class="pdtName">김치만두</span>
+        </div>
+        <div class="panel-body">
+            <h2>1,000</h2>KRW
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="chargeBtn btn btn-default btn-lg" data-toggle="modal" data-target="#cashModal" value="김치만두" onclick="fnGetProductName($(this).val())">
+                충전
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4 align-self-center panel-primary">
+        <div class="panel-heading panel-primary">
+            <span class="pdtName">왕만두</span>
+        </div>
+        <div class="panel-body">
+            <h2>1,0000</h2>KRW
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="chargeBtn btn btn-default btn-lg" data-toggle="modal" data-target="#cashModal" value="왕만두" onclick="fnGetProductName($(this).val())">
+                충전
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4 align-self-center panel-primary">
+        <div class="panel-heading panel-primary">
+            <span class="pdtName">고기만두</span>
+        </div>
+        <div class="panel-body">
+            <h2>3,000</h2>KRW
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="chargeBtn btn btn-default btn-lg" data-toggle="modal" data-target="#cashModal" value="고기만두" onclick="fnGetProductName($(this).val())">
+                충전
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- 모달 영역 -->
+<div class="modal fade" id="cashModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel"><span id="strUserId">@Html.Encode(User.Identity.Name) </span> 충전 페이지</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <h2> 1000원 = 1 <span id="pdtName"></span></h2><br />
+                </div>
+                <div class="container-sort">
+                    <h1><input type="text" id="strPayAmt" value="0" readonly="readonly">원</h1>
+                    <p class="much-before">충전금액</p>
+                </div>
+                <h6 class="remain">충전가능 금액 : <span id="spPayAvailAmt">1,000,000</span> 원</h6>
+                <div class="container-sort">
+                    <input type="button" class="btn btn-default" onclick="fnCountNum(1000)" value="+1000">
+                    <input type="button" class="btn btn-default" onclick="fnCountNum(3000)" value="+3000">
+                    <input type="button" class="btn btn-default" onclick="fnCountNum(5000)" value="+5000">
+                    <input type="button" class="btn btn-default" onclick="fnCountNum(10000)" value="+10000">
+                    <input type="button" class="btn btn-default" onclick="fnCountNum(50000)" value="+50000">
+                    <input type="reset" class="btn btn-default" onclick="fnResetCount(0)" value="초기화">
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            신용카드 : <input type="radio" name="strPgCode" value="creditcard" />
+                        </li>
+                        <li>
+                            휴대폰 : <input type="radio" name="strPgCode" value="mobile" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="fnPaymentProcess()">충전</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+            
+<script type="text/javascript">
+    var strProductName = null;
+    function fnGetProductName(strPdtName){
+        console.log(strPdtName);
+        $('#pdtName').append(strPdtName);
+        if ($('#pdtName').text() != null) {
+            $('#pdtName').append('');
+        } else {
+            $('#pdtName').append(strPdtName);
+        }
+    }
+    /**------------------------------------------------------------
+    * Function Name  : fnCountNum
+    * Description    : 버튼 클릭 후 총 금액 입력
+    ------------------------------------------------------------*/
+    function fnCountNum(num) {
+        var intCrtPayAmt = fnRemoveCommas($('#strPayAmt').val());
+        var intSumPayAmt = num + parseInt(intCrtPayAmt);
+
+        if (intSumPayAmt > 100000) {
+            alert("1회 최대 충전 금액은 100,000원 입니다.");
+            intSumPayAmt = 0
+            $('#strPayAmt').attr('value', fnAddCommas(intSumPayAmt));
+        } else {
+            $('#strPayAmt').attr('value', fnAddCommas(intSumPayAmt));
+        }
+    }
+
+    function fnResetCount(x) {
+        var intCrtPayAmt = $('#strPayAmt').val();
+        var intSumPayAmt = x * parseInt(intCrtPayAmt);
+
+        $('#strPayAmt').attr('value', intSumPayAmt);
+    }
+
+    //모든 콤마 제거
+    function fnRemoveCommas(x) {
+        if (!x || x.length == 0) return "";
+        else return x.split(",").join("");
+    }
+
+    //3자리 단위마다 콤마 생성
+    function fnAddCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    /**------------------------------------------------------------
+    * Function Name  : fnPaymentProcess
+    * Description    : 결제 요청 진행
+    ------------------------------------------------------------*/
+    function fnPaymentProcess() {
+        var strPgCode      = $('input[name="strPgCode"]:checked').val();
+        var strUserID      = $('#strUserId').text();
+        var intTotalAmount = fnRemoveCommas($('#strPayAmt').val());
+
+        var postData = {
+            pgcode: strPgCode,
+            uid    : strUserID,
+            amount: intTotalAmount,
+        }
+        $.ajax({
+            url: "@Url.Action("POQRequest","Home")",
+            data: JSON.stringify(postData),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                console.log(result["online_url"]);
+                location.href = result["online_url"];
+            },
+            error: function (request, error) {
+                console.log(error);
+                console.log(request.responseText);
+            }
+        });
+    }
+</script>

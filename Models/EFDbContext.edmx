@@ -1,0 +1,1240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MHKIM_BILL_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TAcctCashMst">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="UserNo" />
+            <PropertyRef Name="CashAttrCode" />
+          </Key>
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="UserNo" Type="int" Nullable="false" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CashAmt" Type="money" Nullable="false" />
+          <Property Name="TotalInCashAmt" Type="money" Nullable="false" />
+          <Property Name="TotalOutCashAmt" Type="money" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TAcctMst">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="UserNo" />
+          </Key>
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="UserNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MstUserNo" Type="bigint" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GenderCode" Type="tinyint" />
+          <Property Name="BirthDay" Type="date" />
+          <Property Name="EmailAddr" Type="varchar" MaxLength="400" />
+          <Property Name="CountryCode" Type="char" MaxLength="2" />
+          <Property Name="MemberRegDate" Type="datetime" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TCashAttrGame">
+          <Key>
+            <PropertyRef Name="CashAttrCode" />
+            <PropertyRef Name="GameCode" />
+          </Key>
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="GameCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TCashAttrHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CashTypeCode" Type="tinyint" Nullable="false" />
+          <Property Name="CashAttrDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="UseSort" Type="tinyint" Nullable="false" />
+          <Property Name="SalesCalcFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CPSettleFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AllCashFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashPresentAvailFlag" Type="char" MaxLength="1" />
+          <Property Name="RefundAvailFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayLimitSetFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashExpireSetFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashExpireTypeCode" Type="tinyint" />
+          <Property Name="CashExpirePeriod" Type="int" Nullable="false" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TCashAttrMgmt">
+          <Key>
+            <PropertyRef Name="CashAttrCode" />
+          </Key>
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CashTypeCode" Type="tinyint" Nullable="false" />
+          <Property Name="CashAttrDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="UseSort" Type="tinyint" Nullable="false" />
+          <Property Name="SalesCalcFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CPSettleFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AllCashFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashPresentAvailFlag" Type="char" MaxLength="1" />
+          <Property Name="RefundAvailFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayLimitSetFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashExpireSetFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashExpireTypeCode" Type="tinyint" />
+          <Property Name="CashExpirePeriod" Type="int" Nullable="false" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TCashMst">
+          <Key>
+            <PropertyRef Name="CashNo" />
+          </Key>
+          <Property Name="CashNo" Type="bigint" Nullable="false" />
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="UserNo" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="VATAmt" Type="money" Nullable="false" />
+          <Property Name="CashAmt" Type="money" Nullable="false" />
+          <Property Name="RemainCashAmt" Type="money" Nullable="false" />
+          <Property Name="PayToolName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="OrderNo" Type="bigint" />
+          <Property Name="TID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CID" Type="varchar" MaxLength="50" />
+          <Property Name="PayYMD" Type="date" Nullable="false" />
+          <Property Name="PGPayYMD" Type="date" Nullable="false" />
+          <Property Name="CnlYMD" Type="date" />
+          <Property Name="PGCnlYMD" Type="date" />
+          <Property Name="CashExpireYMD" Type="date" Nullable="false" />
+          <Property Name="PayTypeCode" Type="tinyint" Nullable="false" />
+          <Property Name="PayTypeVal" Type="varchar" MaxLength="50" />
+          <Property Name="OrgCashNo" Type="bigint" />
+          <Property Name="CnlFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IPAddr" Type="varchar" MaxLength="50" />
+          <Property Name="AccessCountryCode" Type="char" MaxLength="2" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TCashReceiptMst">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashNo" Type="bigint" Nullable="false" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="SupplyAmt" Type="money" Nullable="false" />
+          <Property Name="VAT" Type="money" Nullable="false" />
+          <Property Name="PubMPhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="PubTypeCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="OrderNo" Type="bigint" />
+          <Property Name="PubTID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PubYMD" Type="date" Nullable="false" />
+          <Property Name="CnlYMD" Type="date" />
+          <Property Name="CnlFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TCashUseDtl">
+          <Key>
+            <PropertyRef Name="ChargeNo" />
+            <PropertyRef Name="CashNo" />
+          </Key>
+          <Property Name="ChargeNo" Type="bigint" Nullable="false" />
+          <Property Name="CashNo" Type="bigint" Nullable="false" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CashTypeCode" Type="tinyint" Nullable="false" />
+          <Property Name="PurchasePrice" Type="money" />
+        </EntityType>
+        <EntityType Name="TPayIncompleteMst">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="UserNo" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="PayToolName" Type="nvarchar" MaxLength="256" />
+          <Property Name="TID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CID" Type="varchar" MaxLength="50" />
+          <Property Name="PayYMD" Type="date" Nullable="false" />
+          <Property Name="PGPayDate" Type="datetime" />
+          <Property Name="StateCode" Type="tinyint" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPayNotiMgmt">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashNo" Type="bigint" Nullable="false" />
+          <Property Name="NotiMsg" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="NotiTypeCode" Type="tinyint" Nullable="false" />
+          <Property Name="TryCnt" Type="int" Nullable="false" />
+          <Property Name="TryStateCode" Type="tinyint" Nullable="false" />
+          <Property Name="NotiRsltCode" Type="int" />
+          <Property Name="NotiRsltMsg" Type="nvarchar" MaxLength="512" />
+          <Property Name="EtcMsg" Type="nvarchar" MaxLength="512" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPayToolMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+          </Key>
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PayToolDesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FixPayAmtFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPGHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PGDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MICName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MICPhoneNo" Type="varchar" MaxLength="200" />
+          <Property Name="MICEmailAddr" Type="varchar" MaxLength="400" />
+          <Property Name="PGURL" Type="varchar" MaxLength="200" />
+          <Property Name="DupTIDAllowFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashReceiptPubFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayCnlAvailFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayCnlAvailTypeCode" Type="tinyint" />
+          <Property Name="PayCnlAvailDay" Type="smallint" />
+          <Property Name="DisplayFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DisplaySort" Type="tinyint" />
+          <Property Name="PGImageURL" Type="varchar" MaxLength="100" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TPGMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+          </Key>
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PGDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MICName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MICPhoneNo" Type="varchar" MaxLength="200" />
+          <Property Name="MICEmailAddr" Type="varchar" MaxLength="400" />
+          <Property Name="PGURL" Type="varchar" MaxLength="200" />
+          <Property Name="DupTIDAllowFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashReceiptPubFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayCnlAvailFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PayCnlAvailTypeCode" Type="tinyint" />
+          <Property Name="PayCnlAvailDay" Type="smallint" />
+          <Property Name="DisplayFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DisplaySort" Type="tinyint" />
+          <Property Name="PGImageURL" Type="varchar" MaxLength="100" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPGPayAmtHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="GameCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="DisplaySort" Type="smallint" Nullable="false" />
+          <Property Name="DisplayTitle" Type="nvarchar" MaxLength="256" />
+          <Property Name="RealCashAmt" Type="money" Nullable="false" />
+          <Property Name="BonusCashPayFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" />
+          <Property Name="BonusCashPayTypeCode" Type="tinyint" />
+          <Property Name="BonusCashAmt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TPGPayAmtMgmt">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="GameCode" />
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+            <PropertyRef Name="CurrencyCode" />
+            <PropertyRef Name="PayAmt" />
+          </Key>
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="GameCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplaySort" Type="smallint" Nullable="false" />
+          <Property Name="DisplayTitle" Type="nvarchar" MaxLength="256" />
+          <Property Name="RealCashAmt" Type="money" Nullable="false" />
+          <Property Name="BonusCashPayFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CashAttrCode" Type="varchar" MaxLength="15" />
+          <Property Name="BonusCashPayTypeCode" Type="tinyint" />
+          <Property Name="BonusCashAmt" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="UseFlag" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPGPayLogMst">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="OrderNo" Type="bigint" Nullable="false" />
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="UserNo" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="MstUserNo" Type="bigint" />
+          <Property Name="GenderCode" Type="tinyint" />
+          <Property Name="BirthDay" Type="date" />
+          <Property Name="EmailAddr" Type="varchar" MaxLength="400" />
+          <Property Name="CountryCode" Type="char" MaxLength="2" />
+          <Property Name="MemberRegDate" Type="datetime" />
+          <Property Name="GameCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PayAmt" Type="money" Nullable="false" />
+          <Property Name="VATAmt" Type="money" Nullable="false" />
+          <Property Name="TID" Type="varchar" MaxLength="50" />
+          <Property Name="PayYMD" Type="date" Nullable="false" />
+          <Property Name="ReserveData" Type="varchar" MaxLength="1000" />
+          <Property Name="PayRsltCode" Type="varchar" MaxLength="10" />
+          <Property Name="PayRsltMsg" Type="nvarchar" MaxLength="256" />
+          <Property Name="IPAddr" Type="varchar" MaxLength="50" />
+          <Property Name="AccessCountryCode" Type="char" MaxLength="2" />
+          <Property Name="StateCode" Type="tinyint" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TPGServiceCountryMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="PayToolCode" Type="tinyint" Nullable="false" />
+          <Property Name="PGCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MallID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CountryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TSiteCodeMgmt">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+          </Key>
+          <Property Name="SiteCode" Type="tinyint" Nullable="false" />
+          <Property Name="SiteName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdDate" Type="datetime" />
+        </EntityType>
+        <Association Name="fk_tSiteCodeMgmt_tAcctMst">
+          <End Role="TSiteCodeMgmt" Type="Self.TSiteCodeMgmt" Multiplicity="1" />
+          <End Role="TAcctMst" Type="Self.TAcctMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSiteCodeMgmt">
+              <PropertyRef Name="SiteCode" />
+            </Principal>
+            <Dependent Role="TAcctMst">
+              <PropertyRef Name="SiteCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MHKIM_BILL_DBModelStoreContainer">
+          <EntitySet Name="TAcctCashMst" EntityType="Self.TAcctCashMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAcctMst" EntityType="Self.TAcctMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashAttrGame" EntityType="Self.TCashAttrGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashAttrHist" EntityType="Self.TCashAttrHist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashAttrMgmt" EntityType="Self.TCashAttrMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashMst" EntityType="Self.TCashMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashReceiptMst" EntityType="Self.TCashReceiptMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCashUseDtl" EntityType="Self.TCashUseDtl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPayIncompleteMst" EntityType="Self.TPayIncompleteMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPayNotiMgmt" EntityType="Self.TPayNotiMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPayToolMgmt" EntityType="Self.TPayToolMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGHist" EntityType="Self.TPGHist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGMgmt" EntityType="Self.TPGMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGPayAmtHist" EntityType="Self.TPGPayAmtHist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGPayAmtMgmt" EntityType="Self.TPGPayAmtMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGPayLogMst" EntityType="Self.TPGPayLogMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPGServiceCountryMgmt" EntityType="Self.TPGServiceCountryMgmt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSiteCodeMgmt" EntityType="Self.TSiteCodeMgmt" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_tSiteCodeMgmt_tAcctMst" Association="Self.fk_tSiteCodeMgmt_tAcctMst">
+            <End Role="TSiteCodeMgmt" EntitySet="TSiteCodeMgmt" />
+            <End Role="TAcctMst" EntitySet="TAcctMst" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MHKIM_BILL_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TAcctCashMst">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="UserNo" />
+            <PropertyRef Name="CashAttrCode" />
+          </Key>
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="UserNo" Type="Int32" Nullable="false" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TotalInCashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TotalOutCashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TAcctMst">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="UserNo" />
+          </Key>
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="UserNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MstUserNo" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="Byte" />
+          <Property Name="BirthDay" Type="DateTime" Precision="0" />
+          <Property Name="EmailAddr" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="MemberRegDate" Type="DateTime" Precision="3" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TSiteCodeMgmt" Relationship="Self.fk_tSiteCodeMgmt_tAcctMst" FromRole="TAcctMst" ToRole="TSiteCodeMgmt" />
+        </EntityType>
+        <EntityType Name="TCashAttrGame">
+          <Key>
+            <PropertyRef Name="CashAttrCode" />
+            <PropertyRef Name="GameCode" />
+          </Key>
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GameCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TCashAttrHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CashTypeCode" Type="Byte" Nullable="false" />
+          <Property Name="CashAttrDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UseSort" Type="Byte" Nullable="false" />
+          <Property Name="SalesCalcFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CPSettleFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AllCashFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashPresentAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RefundAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayLimitSetFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashExpireSetFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashExpireTypeCode" Type="Byte" />
+          <Property Name="CashExpirePeriod" Type="Int32" Nullable="false" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TCashAttrMgmt">
+          <Key>
+            <PropertyRef Name="CashAttrCode" />
+          </Key>
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CashTypeCode" Type="Byte" Nullable="false" />
+          <Property Name="CashAttrDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UseSort" Type="Byte" Nullable="false" />
+          <Property Name="SalesCalcFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CPSettleFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AllCashFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashPresentAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RefundAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayLimitSetFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashExpireSetFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashExpireTypeCode" Type="Byte" />
+          <Property Name="CashExpirePeriod" Type="Int32" Nullable="false" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TCashMst">
+          <Key>
+            <PropertyRef Name="CashNo" />
+          </Key>
+          <Property Name="CashNo" Type="Int64" Nullable="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="UserNo" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="VATAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RemainCashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PayToolName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int64" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PGPayYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CnlYMD" Type="DateTime" Precision="0" />
+          <Property Name="PGCnlYMD" Type="DateTime" Precision="0" />
+          <Property Name="CashExpireYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PayTypeCode" Type="Byte" Nullable="false" />
+          <Property Name="PayTypeVal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCashNo" Type="Int64" />
+          <Property Name="CnlFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IPAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccessCountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TCashReceiptMst">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashNo" Type="Int64" Nullable="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SupplyAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PubMPhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PubTypeCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OrderNo" Type="Int64" />
+          <Property Name="PubTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PubYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CnlYMD" Type="DateTime" Precision="0" />
+          <Property Name="CnlFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TCashUseDtl">
+          <Key>
+            <PropertyRef Name="ChargeNo" />
+            <PropertyRef Name="CashNo" />
+          </Key>
+          <Property Name="ChargeNo" Type="Int64" Nullable="false" />
+          <Property Name="CashNo" Type="Int64" Nullable="false" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CashTypeCode" Type="Byte" Nullable="false" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="TPayIncompleteMst">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="UserNo" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PayToolName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PGPayDate" Type="DateTime" Precision="3" />
+          <Property Name="StateCode" Type="Byte" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPayNotiMgmt">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashNo" Type="Int64" Nullable="false" />
+          <Property Name="NotiMsg" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NotiTypeCode" Type="Byte" Nullable="false" />
+          <Property Name="TryCnt" Type="Int32" Nullable="false" />
+          <Property Name="TryStateCode" Type="Byte" Nullable="false" />
+          <Property Name="NotiRsltCode" Type="Int32" />
+          <Property Name="NotiRsltMsg" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="EtcMsg" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPayToolMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+          </Key>
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PayToolDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FixPayAmtFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PGDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MICName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MICPhoneNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MICEmailAddr" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PGURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DupTIDAllowFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashReceiptPubFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayCnlAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayCnlAvailTypeCode" Type="Byte" />
+          <Property Name="PayCnlAvailDay" Type="Int16" />
+          <Property Name="DisplayFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DisplaySort" Type="Byte" />
+          <Property Name="PGImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+          </Key>
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PGDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MICName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MICPhoneNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MICEmailAddr" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PGURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DupTIDAllowFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashReceiptPubFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayCnlAvailFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayCnlAvailTypeCode" Type="Byte" />
+          <Property Name="PayCnlAvailDay" Type="Int16" />
+          <Property Name="DisplayFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DisplaySort" Type="Byte" />
+          <Property Name="PGImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGPayAmtHist">
+          <Key>
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="GameCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DisplaySort" Type="Int16" Nullable="false" />
+          <Property Name="DisplayTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RealCashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BonusCashPayFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BonusCashPayTypeCode" Type="Byte" />
+          <Property Name="BonusCashAmt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGPayAmtMgmt">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="GameCode" />
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+            <PropertyRef Name="CurrencyCode" />
+            <PropertyRef Name="PayAmt" />
+          </Key>
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="GameCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplaySort" Type="Int16" Nullable="false" />
+          <Property Name="DisplayTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RealCashAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BonusCashPayFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CashAttrCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BonusCashPayTypeCode" Type="Byte" />
+          <Property Name="BonusCashAmt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UseFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGPayLogMst">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="OrderNo" Type="Int64" Nullable="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="UserNo" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MstUserNo" Type="Int64" />
+          <Property Name="GenderCode" Type="Byte" />
+          <Property Name="BirthDay" Type="DateTime" Precision="0" />
+          <Property Name="EmailAddr" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="MemberRegDate" Type="DateTime" Precision="3" />
+          <Property Name="GameCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PayAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="VATAmt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayYMD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReserveData" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PayRsltCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PayRsltMsg" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccessCountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="StateCode" Type="Byte" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TPGServiceCountryMgmt">
+          <Key>
+            <PropertyRef Name="PayToolCode" />
+            <PropertyRef Name="PGCode" />
+            <PropertyRef Name="MallID" />
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="PayToolCode" Type="Byte" Nullable="false" />
+          <Property Name="PGCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MallID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TSiteCodeMgmt">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+          </Key>
+          <Property Name="SiteCode" Type="Byte" Nullable="false" />
+          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TAcctMst" Relationship="Self.fk_tSiteCodeMgmt_tAcctMst" FromRole="TSiteCodeMgmt" ToRole="TAcctMst" />
+        </EntityType>
+        <Association Name="fk_tSiteCodeMgmt_tAcctMst">
+          <End Role="TSiteCodeMgmt" Type="Self.TSiteCodeMgmt" Multiplicity="1" />
+          <End Role="TAcctMst" Type="Self.TAcctMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSiteCodeMgmt">
+              <PropertyRef Name="SiteCode" />
+            </Principal>
+            <Dependent Role="TAcctMst">
+              <PropertyRef Name="SiteCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MHKIM_BILL_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TAcctCashMst" EntityType="Self.TAcctCashMst" />
+          <EntitySet Name="TAcctMst" EntityType="Self.TAcctMst" />
+          <EntitySet Name="TCashAttrGame" EntityType="Self.TCashAttrGame" />
+          <EntitySet Name="TCashAttrHist" EntityType="Self.TCashAttrHist" />
+          <EntitySet Name="TCashAttrMgmt" EntityType="Self.TCashAttrMgmt" />
+          <EntitySet Name="TCashMst" EntityType="Self.TCashMst" />
+          <EntitySet Name="TCashReceiptMst" EntityType="Self.TCashReceiptMst" />
+          <EntitySet Name="TCashUseDtl" EntityType="Self.TCashUseDtl" />
+          <EntitySet Name="TPayIncompleteMst" EntityType="Self.TPayIncompleteMst" />
+          <EntitySet Name="TPayNotiMgmt" EntityType="Self.TPayNotiMgmt" />
+          <EntitySet Name="TPayToolMgmt" EntityType="Self.TPayToolMgmt" />
+          <EntitySet Name="TPGHist" EntityType="Self.TPGHist" />
+          <EntitySet Name="TPGMgmt" EntityType="Self.TPGMgmt" />
+          <EntitySet Name="TPGPayAmtHist" EntityType="Self.TPGPayAmtHist" />
+          <EntitySet Name="TPGPayAmtMgmt" EntityType="Self.TPGPayAmtMgmt" />
+          <EntitySet Name="TPGPayLogMst" EntityType="Self.TPGPayLogMst" />
+          <EntitySet Name="TPGServiceCountryMgmt" EntityType="Self.TPGServiceCountryMgmt" />
+          <EntitySet Name="TSiteCodeMgmt" EntityType="Self.TSiteCodeMgmt" />
+          <AssociationSet Name="fk_tSiteCodeMgmt_tAcctMst" Association="Self.fk_tSiteCodeMgmt_tAcctMst">
+            <End Role="TSiteCodeMgmt" EntitySet="TSiteCodeMgmt" />
+            <End Role="TAcctMst" EntitySet="TAcctMst" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MHKIM_BILL_DBModelStoreContainer" CdmEntityContainer="MHKIM_BILL_DBEntities">
+          <EntitySetMapping Name="TAcctCashMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TAcctCashMst">
+              <MappingFragment StoreEntitySet="TAcctCashMst">
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="CashAmt" ColumnName="CashAmt" />
+                <ScalarProperty Name="TotalInCashAmt" ColumnName="TotalInCashAmt" />
+                <ScalarProperty Name="TotalOutCashAmt" ColumnName="TotalOutCashAmt" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAcctMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TAcctMst">
+              <MappingFragment StoreEntitySet="TAcctMst">
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="MstUserNo" ColumnName="MstUserNo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="EmailAddr" ColumnName="EmailAddr" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="MemberRegDate" ColumnName="MemberRegDate" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashAttrGame">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrGame">
+              <MappingFragment StoreEntitySet="TCashAttrGame">
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashAttrHist">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrHist">
+              <MappingFragment StoreEntitySet="TCashAttrHist">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+                <ScalarProperty Name="CashAttrDesc" ColumnName="CashAttrDesc" />
+                <ScalarProperty Name="UseSort" ColumnName="UseSort" />
+                <ScalarProperty Name="SalesCalcFlag" ColumnName="SalesCalcFlag" />
+                <ScalarProperty Name="CPSettleFlag" ColumnName="CPSettleFlag" />
+                <ScalarProperty Name="AllCashFlag" ColumnName="AllCashFlag" />
+                <ScalarProperty Name="CashPresentAvailFlag" ColumnName="CashPresentAvailFlag" />
+                <ScalarProperty Name="RefundAvailFlag" ColumnName="RefundAvailFlag" />
+                <ScalarProperty Name="PayLimitSetFlag" ColumnName="PayLimitSetFlag" />
+                <ScalarProperty Name="CashExpireSetFlag" ColumnName="CashExpireSetFlag" />
+                <ScalarProperty Name="CashExpireTypeCode" ColumnName="CashExpireTypeCode" />
+                <ScalarProperty Name="CashExpirePeriod" ColumnName="CashExpirePeriod" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashAttrMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrMgmt">
+              <MappingFragment StoreEntitySet="TCashAttrMgmt">
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+                <ScalarProperty Name="CashAttrDesc" ColumnName="CashAttrDesc" />
+                <ScalarProperty Name="UseSort" ColumnName="UseSort" />
+                <ScalarProperty Name="SalesCalcFlag" ColumnName="SalesCalcFlag" />
+                <ScalarProperty Name="CPSettleFlag" ColumnName="CPSettleFlag" />
+                <ScalarProperty Name="AllCashFlag" ColumnName="AllCashFlag" />
+                <ScalarProperty Name="CashPresentAvailFlag" ColumnName="CashPresentAvailFlag" />
+                <ScalarProperty Name="RefundAvailFlag" ColumnName="RefundAvailFlag" />
+                <ScalarProperty Name="PayLimitSetFlag" ColumnName="PayLimitSetFlag" />
+                <ScalarProperty Name="CashExpireSetFlag" ColumnName="CashExpireSetFlag" />
+                <ScalarProperty Name="CashExpireTypeCode" ColumnName="CashExpireTypeCode" />
+                <ScalarProperty Name="CashExpirePeriod" ColumnName="CashExpirePeriod" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashMst">
+              <MappingFragment StoreEntitySet="TCashMst">
+                <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="VATAmt" ColumnName="VATAmt" />
+                <ScalarProperty Name="CashAmt" ColumnName="CashAmt" />
+                <ScalarProperty Name="RemainCashAmt" ColumnName="RemainCashAmt" />
+                <ScalarProperty Name="PayToolName" ColumnName="PayToolName" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+                <ScalarProperty Name="PGPayYMD" ColumnName="PGPayYMD" />
+                <ScalarProperty Name="CnlYMD" ColumnName="CnlYMD" />
+                <ScalarProperty Name="PGCnlYMD" ColumnName="PGCnlYMD" />
+                <ScalarProperty Name="CashExpireYMD" ColumnName="CashExpireYMD" />
+                <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+                <ScalarProperty Name="PayTypeVal" ColumnName="PayTypeVal" />
+                <ScalarProperty Name="OrgCashNo" ColumnName="OrgCashNo" />
+                <ScalarProperty Name="CnlFlag" ColumnName="CnlFlag" />
+                <ScalarProperty Name="IPAddr" ColumnName="IPAddr" />
+                <ScalarProperty Name="AccessCountryCode" ColumnName="AccessCountryCode" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashReceiptMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashReceiptMst">
+              <MappingFragment StoreEntitySet="TCashReceiptMst">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="SupplyAmt" ColumnName="SupplyAmt" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="PubMPhoneNo" ColumnName="PubMPhoneNo" />
+                <ScalarProperty Name="PubTypeCode" ColumnName="PubTypeCode" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="PubTID" ColumnName="PubTID" />
+                <ScalarProperty Name="PubYMD" ColumnName="PubYMD" />
+                <ScalarProperty Name="CnlYMD" ColumnName="CnlYMD" />
+                <ScalarProperty Name="CnlFlag" ColumnName="CnlFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCashUseDtl">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashUseDtl">
+              <MappingFragment StoreEntitySet="TCashUseDtl">
+                <ScalarProperty Name="ChargeNo" ColumnName="ChargeNo" />
+                <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPayIncompleteMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayIncompleteMst">
+              <MappingFragment StoreEntitySet="TPayIncompleteMst">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="PayToolName" ColumnName="PayToolName" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+                <ScalarProperty Name="PGPayDate" ColumnName="PGPayDate" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPayNotiMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayNotiMgmt">
+              <MappingFragment StoreEntitySet="TPayNotiMgmt">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+                <ScalarProperty Name="NotiMsg" ColumnName="NotiMsg" />
+                <ScalarProperty Name="NotiTypeCode" ColumnName="NotiTypeCode" />
+                <ScalarProperty Name="TryCnt" ColumnName="TryCnt" />
+                <ScalarProperty Name="TryStateCode" ColumnName="TryStateCode" />
+                <ScalarProperty Name="NotiRsltCode" ColumnName="NotiRsltCode" />
+                <ScalarProperty Name="NotiRsltMsg" ColumnName="NotiRsltMsg" />
+                <ScalarProperty Name="EtcMsg" ColumnName="EtcMsg" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPayToolMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayToolMgmt">
+              <MappingFragment StoreEntitySet="TPayToolMgmt">
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PayToolDesc" ColumnName="PayToolDesc" />
+                <ScalarProperty Name="FixPayAmtFlag" ColumnName="FixPayAmtFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGHist">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGHist">
+              <MappingFragment StoreEntitySet="TPGHist">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="PGDesc" ColumnName="PGDesc" />
+                <ScalarProperty Name="MICName" ColumnName="MICName" />
+                <ScalarProperty Name="MICPhoneNo" ColumnName="MICPhoneNo" />
+                <ScalarProperty Name="MICEmailAddr" ColumnName="MICEmailAddr" />
+                <ScalarProperty Name="PGURL" ColumnName="PGURL" />
+                <ScalarProperty Name="DupTIDAllowFlag" ColumnName="DupTIDAllowFlag" />
+                <ScalarProperty Name="CashReceiptPubFlag" ColumnName="CashReceiptPubFlag" />
+                <ScalarProperty Name="PayCnlAvailFlag" ColumnName="PayCnlAvailFlag" />
+                <ScalarProperty Name="PayCnlAvailTypeCode" ColumnName="PayCnlAvailTypeCode" />
+                <ScalarProperty Name="PayCnlAvailDay" ColumnName="PayCnlAvailDay" />
+                <ScalarProperty Name="DisplayFlag" ColumnName="DisplayFlag" />
+                <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+                <ScalarProperty Name="PGImageURL" ColumnName="PGImageURL" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGMgmt">
+              <MappingFragment StoreEntitySet="TPGMgmt">
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="PGDesc" ColumnName="PGDesc" />
+                <ScalarProperty Name="MICName" ColumnName="MICName" />
+                <ScalarProperty Name="MICPhoneNo" ColumnName="MICPhoneNo" />
+                <ScalarProperty Name="MICEmailAddr" ColumnName="MICEmailAddr" />
+                <ScalarProperty Name="PGURL" ColumnName="PGURL" />
+                <ScalarProperty Name="DupTIDAllowFlag" ColumnName="DupTIDAllowFlag" />
+                <ScalarProperty Name="CashReceiptPubFlag" ColumnName="CashReceiptPubFlag" />
+                <ScalarProperty Name="PayCnlAvailFlag" ColumnName="PayCnlAvailFlag" />
+                <ScalarProperty Name="PayCnlAvailTypeCode" ColumnName="PayCnlAvailTypeCode" />
+                <ScalarProperty Name="PayCnlAvailDay" ColumnName="PayCnlAvailDay" />
+                <ScalarProperty Name="DisplayFlag" ColumnName="DisplayFlag" />
+                <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+                <ScalarProperty Name="PGImageURL" ColumnName="PGImageURL" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGPayAmtHist">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayAmtHist">
+              <MappingFragment StoreEntitySet="TPGPayAmtHist">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+                <ScalarProperty Name="DisplayTitle" ColumnName="DisplayTitle" />
+                <ScalarProperty Name="RealCashAmt" ColumnName="RealCashAmt" />
+                <ScalarProperty Name="BonusCashPayFlag" ColumnName="BonusCashPayFlag" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="BonusCashPayTypeCode" ColumnName="BonusCashPayTypeCode" />
+                <ScalarProperty Name="BonusCashAmt" ColumnName="BonusCashAmt" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGPayAmtMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayAmtMgmt">
+              <MappingFragment StoreEntitySet="TPGPayAmtMgmt">
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+                <ScalarProperty Name="DisplayTitle" ColumnName="DisplayTitle" />
+                <ScalarProperty Name="RealCashAmt" ColumnName="RealCashAmt" />
+                <ScalarProperty Name="BonusCashPayFlag" ColumnName="BonusCashPayFlag" />
+                <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+                <ScalarProperty Name="BonusCashPayTypeCode" ColumnName="BonusCashPayTypeCode" />
+                <ScalarProperty Name="BonusCashAmt" ColumnName="BonusCashAmt" />
+                <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGPayLogMst">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayLogMst">
+              <MappingFragment StoreEntitySet="TPGPayLogMst">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MstUserNo" ColumnName="MstUserNo" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="EmailAddr" ColumnName="EmailAddr" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="MemberRegDate" ColumnName="MemberRegDate" />
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="VATAmt" ColumnName="VATAmt" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+                <ScalarProperty Name="ReserveData" ColumnName="ReserveData" />
+                <ScalarProperty Name="PayRsltCode" ColumnName="PayRsltCode" />
+                <ScalarProperty Name="PayRsltMsg" ColumnName="PayRsltMsg" />
+                <ScalarProperty Name="IPAddr" ColumnName="IPAddr" />
+                <ScalarProperty Name="AccessCountryCode" ColumnName="AccessCountryCode" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPGServiceCountryMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGServiceCountryMgmt">
+              <MappingFragment StoreEntitySet="TPGServiceCountryMgmt">
+                <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+                <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+                <ScalarProperty Name="MallID" ColumnName="MallID" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSiteCodeMgmt">
+            <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TSiteCodeMgmt">
+              <MappingFragment StoreEntitySet="TSiteCodeMgmt">
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

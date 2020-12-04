@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MHKIM_BILL_DBModelStoreContainer" CdmEntityContainer="MHKIM_BILL_DBEntities">
+    <EntitySetMapping Name="TAcctCashMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TAcctCashMst">
+        <MappingFragment StoreEntitySet="TAcctCashMst">
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="CashAmt" ColumnName="CashAmt" />
+          <ScalarProperty Name="TotalInCashAmt" ColumnName="TotalInCashAmt" />
+          <ScalarProperty Name="TotalOutCashAmt" ColumnName="TotalOutCashAmt" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAcctMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TAcctMst">
+        <MappingFragment StoreEntitySet="TAcctMst">
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="MstUserNo" ColumnName="MstUserNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="EmailAddr" ColumnName="EmailAddr" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="MemberRegDate" ColumnName="MemberRegDate" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashAttrGame">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrGame">
+        <MappingFragment StoreEntitySet="TCashAttrGame">
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashAttrHist">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrHist">
+        <MappingFragment StoreEntitySet="TCashAttrHist">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+          <ScalarProperty Name="CashAttrDesc" ColumnName="CashAttrDesc" />
+          <ScalarProperty Name="UseSort" ColumnName="UseSort" />
+          <ScalarProperty Name="SalesCalcFlag" ColumnName="SalesCalcFlag" />
+          <ScalarProperty Name="CPSettleFlag" ColumnName="CPSettleFlag" />
+          <ScalarProperty Name="AllCashFlag" ColumnName="AllCashFlag" />
+          <ScalarProperty Name="CashPresentAvailFlag" ColumnName="CashPresentAvailFlag" />
+          <ScalarProperty Name="RefundAvailFlag" ColumnName="RefundAvailFlag" />
+          <ScalarProperty Name="PayLimitSetFlag" ColumnName="PayLimitSetFlag" />
+          <ScalarProperty Name="CashExpireSetFlag" ColumnName="CashExpireSetFlag" />
+          <ScalarProperty Name="CashExpireTypeCode" ColumnName="CashExpireTypeCode" />
+          <ScalarProperty Name="CashExpirePeriod" ColumnName="CashExpirePeriod" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashAttrMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashAttrMgmt">
+        <MappingFragment StoreEntitySet="TCashAttrMgmt">
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+          <ScalarProperty Name="CashAttrDesc" ColumnName="CashAttrDesc" />
+          <ScalarProperty Name="UseSort" ColumnName="UseSort" />
+          <ScalarProperty Name="SalesCalcFlag" ColumnName="SalesCalcFlag" />
+          <ScalarProperty Name="CPSettleFlag" ColumnName="CPSettleFlag" />
+          <ScalarProperty Name="AllCashFlag" ColumnName="AllCashFlag" />
+          <ScalarProperty Name="CashPresentAvailFlag" ColumnName="CashPresentAvailFlag" />
+          <ScalarProperty Name="RefundAvailFlag" ColumnName="RefundAvailFlag" />
+          <ScalarProperty Name="PayLimitSetFlag" ColumnName="PayLimitSetFlag" />
+          <ScalarProperty Name="CashExpireSetFlag" ColumnName="CashExpireSetFlag" />
+          <ScalarProperty Name="CashExpireTypeCode" ColumnName="CashExpireTypeCode" />
+          <ScalarProperty Name="CashExpirePeriod" ColumnName="CashExpirePeriod" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashMst">
+        <MappingFragment StoreEntitySet="TCashMst">
+          <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="VATAmt" ColumnName="VATAmt" />
+          <ScalarProperty Name="CashAmt" ColumnName="CashAmt" />
+          <ScalarProperty Name="RemainCashAmt" ColumnName="RemainCashAmt" />
+          <ScalarProperty Name="PayToolName" ColumnName="PayToolName" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+          <ScalarProperty Name="PGPayYMD" ColumnName="PGPayYMD" />
+          <ScalarProperty Name="CnlYMD" ColumnName="CnlYMD" />
+          <ScalarProperty Name="PGCnlYMD" ColumnName="PGCnlYMD" />
+          <ScalarProperty Name="CashExpireYMD" ColumnName="CashExpireYMD" />
+          <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+          <ScalarProperty Name="PayTypeVal" ColumnName="PayTypeVal" />
+          <ScalarProperty Name="OrgCashNo" ColumnName="OrgCashNo" />
+          <ScalarProperty Name="CnlFlag" ColumnName="CnlFlag" />
+          <ScalarProperty Name="IPAddr" ColumnName="IPAddr" />
+          <ScalarProperty Name="AccessCountryCode" ColumnName="AccessCountryCode" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashReceiptMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashReceiptMst">
+        <MappingFragment StoreEntitySet="TCashReceiptMst">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="SupplyAmt" ColumnName="SupplyAmt" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="PubMPhoneNo" ColumnName="PubMPhoneNo" />
+          <ScalarProperty Name="PubTypeCode" ColumnName="PubTypeCode" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="PubTID" ColumnName="PubTID" />
+          <ScalarProperty Name="PubYMD" ColumnName="PubYMD" />
+          <ScalarProperty Name="CnlYMD" ColumnName="CnlYMD" />
+          <ScalarProperty Name="CnlFlag" ColumnName="CnlFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCashUseDtl">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TCashUseDtl">
+        <MappingFragment StoreEntitySet="TCashUseDtl">
+          <ScalarProperty Name="ChargeNo" ColumnName="ChargeNo" />
+          <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="CashTypeCode" ColumnName="CashTypeCode" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPayIncompleteMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayIncompleteMst">
+        <MappingFragment StoreEntitySet="TPayIncompleteMst">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="PayToolName" ColumnName="PayToolName" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+          <ScalarProperty Name="PGPayDate" ColumnName="PGPayDate" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPayNotiMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayNotiMgmt">
+        <MappingFragment StoreEntitySet="TPayNotiMgmt">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="CashNo" ColumnName="CashNo" />
+          <ScalarProperty Name="NotiMsg" ColumnName="NotiMsg" />
+          <ScalarProperty Name="NotiTypeCode" ColumnName="NotiTypeCode" />
+          <ScalarProperty Name="TryCnt" ColumnName="TryCnt" />
+          <ScalarProperty Name="TryStateCode" ColumnName="TryStateCode" />
+          <ScalarProperty Name="NotiRsltCode" ColumnName="NotiRsltCode" />
+          <ScalarProperty Name="NotiRsltMsg" ColumnName="NotiRsltMsg" />
+          <ScalarProperty Name="EtcMsg" ColumnName="EtcMsg" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPayToolMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPayToolMgmt">
+        <MappingFragment StoreEntitySet="TPayToolMgmt">
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PayToolDesc" ColumnName="PayToolDesc" />
+          <ScalarProperty Name="FixPayAmtFlag" ColumnName="FixPayAmtFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGHist">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGHist">
+        <MappingFragment StoreEntitySet="TPGHist">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="PGDesc" ColumnName="PGDesc" />
+          <ScalarProperty Name="MICName" ColumnName="MICName" />
+          <ScalarProperty Name="MICPhoneNo" ColumnName="MICPhoneNo" />
+          <ScalarProperty Name="MICEmailAddr" ColumnName="MICEmailAddr" />
+          <ScalarProperty Name="PGURL" ColumnName="PGURL" />
+          <ScalarProperty Name="DupTIDAllowFlag" ColumnName="DupTIDAllowFlag" />
+          <ScalarProperty Name="CashReceiptPubFlag" ColumnName="CashReceiptPubFlag" />
+          <ScalarProperty Name="PayCnlAvailFlag" ColumnName="PayCnlAvailFlag" />
+          <ScalarProperty Name="PayCnlAvailTypeCode" ColumnName="PayCnlAvailTypeCode" />
+          <ScalarProperty Name="PayCnlAvailDay" ColumnName="PayCnlAvailDay" />
+          <ScalarProperty Name="DisplayFlag" ColumnName="DisplayFlag" />
+          <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+          <ScalarProperty Name="PGImageURL" ColumnName="PGImageURL" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGMgmt">
+        <MappingFragment StoreEntitySet="TPGMgmt">
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="PGDesc" ColumnName="PGDesc" />
+          <ScalarProperty Name="MICName" ColumnName="MICName" />
+          <ScalarProperty Name="MICPhoneNo" ColumnName="MICPhoneNo" />
+          <ScalarProperty Name="MICEmailAddr" ColumnName="MICEmailAddr" />
+          <ScalarProperty Name="PGURL" ColumnName="PGURL" />
+          <ScalarProperty Name="DupTIDAllowFlag" ColumnName="DupTIDAllowFlag" />
+          <ScalarProperty Name="CashReceiptPubFlag" ColumnName="CashReceiptPubFlag" />
+          <ScalarProperty Name="PayCnlAvailFlag" ColumnName="PayCnlAvailFlag" />
+          <ScalarProperty Name="PayCnlAvailTypeCode" ColumnName="PayCnlAvailTypeCode" />
+          <ScalarProperty Name="PayCnlAvailDay" ColumnName="PayCnlAvailDay" />
+          <ScalarProperty Name="DisplayFlag" ColumnName="DisplayFlag" />
+          <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+          <ScalarProperty Name="PGImageURL" ColumnName="PGImageURL" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGPayAmtHist">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayAmtHist">
+        <MappingFragment StoreEntitySet="TPGPayAmtHist">
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+          <ScalarProperty Name="DisplayTitle" ColumnName="DisplayTitle" />
+          <ScalarProperty Name="RealCashAmt" ColumnName="RealCashAmt" />
+          <ScalarProperty Name="BonusCashPayFlag" ColumnName="BonusCashPayFlag" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="BonusCashPayTypeCode" ColumnName="BonusCashPayTypeCode" />
+          <ScalarProperty Name="BonusCashAmt" ColumnName="BonusCashAmt" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGPayAmtMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayAmtMgmt">
+        <MappingFragment StoreEntitySet="TPGPayAmtMgmt">
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="DisplaySort" ColumnName="DisplaySort" />
+          <ScalarProperty Name="DisplayTitle" ColumnName="DisplayTitle" />
+          <ScalarProperty Name="RealCashAmt" ColumnName="RealCashAmt" />
+          <ScalarProperty Name="BonusCashPayFlag" ColumnName="BonusCashPayFlag" />
+          <ScalarProperty Name="CashAttrCode" ColumnName="CashAttrCode" />
+          <ScalarProperty Name="BonusCashPayTypeCode" ColumnName="BonusCashPayTypeCode" />
+          <ScalarProperty Name="BonusCashAmt" ColumnName="BonusCashAmt" />
+          <ScalarProperty Name="UseFlag" ColumnName="UseFlag" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGPayLogMst">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGPayLogMst">
+        <MappingFragment StoreEntitySet="TPGPayLogMst">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MstUserNo" ColumnName="MstUserNo" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="EmailAddr" ColumnName="EmailAddr" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="MemberRegDate" ColumnName="MemberRegDate" />
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+          <ScalarProperty Name="VATAmt" ColumnName="VATAmt" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="PayYMD" ColumnName="PayYMD" />
+          <ScalarProperty Name="ReserveData" ColumnName="ReserveData" />
+          <ScalarProperty Name="PayRsltCode" ColumnName="PayRsltCode" />
+          <ScalarProperty Name="PayRsltMsg" ColumnName="PayRsltMsg" />
+          <ScalarProperty Name="IPAddr" ColumnName="IPAddr" />
+          <ScalarProperty Name="AccessCountryCode" ColumnName="AccessCountryCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPGServiceCountryMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TPGServiceCountryMgmt">
+        <MappingFragment StoreEntitySet="TPGServiceCountryMgmt">
+          <ScalarProperty Name="PayToolCode" ColumnName="PayToolCode" />
+          <ScalarProperty Name="PGCode" ColumnName="PGCode" />
+          <ScalarProperty Name="MallID" ColumnName="MallID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TSiteCodeMgmt">
+      <EntityTypeMapping TypeName="MHKIM_BILL_DBModel.TSiteCodeMgmt">
+        <MappingFragment StoreEntitySet="TSiteCodeMgmt">
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
